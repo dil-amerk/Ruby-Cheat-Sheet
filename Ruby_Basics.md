@@ -240,3 +240,111 @@ end
 - abort(msg)
 - redo 
 ```
+
+## **Input and Output**
+
+| Output | Input |
+|-----------|-----------|
+|   puts (Console.WriteLine())   |  gets  |
+|   print(Console.Write()) 
+
+| Important with gets | |
+|-----------|-----------|
+|   chop  |  Removes the last character of a string   |
+|   chomp | Removes the last character of a string if it is a new line character|
+
+| Convert Data Types | |
+|-----------|-----------|
+|   .to_s  |  to String    |
+|   .to_i  | to Int |
+|   .to_f  | to Float |
+|   .to_sym | to Symbol|
+|   .to_a | to Array |
+
+## **Code Block** 
+
+```
+- {} format (e.x.: 5.times {puts "Hello"}):
+    -Single-line blocks
+    -Blocks that return data, no changes
+
+-Do-end format: 
+    -e.x: 5.times do 
+            puts "He"
+           end 
+
+    -Multiline blocks
+    -Blocks that perform actions, make changes
+```
+
+```
+- Block Variable ('|variable_name|'):
+    - 5.downto(1) do |i|
+            puts "He #{i}"
+           end 
+
+    - 5.downto(1) {|i| puts "He #{i}"}
+
+    - scores = {low: 1, medium:2, high:3}
+
+      scores.each do |k,v|
+        puts "#{k.upcase}: #{v}"
+      end  
+```
+
+## **Find Method**
+
+```
+- Methods:
+    - find / detect
+    - find_all / select
+    - any?, none?
+    - all?, one?
+    - delete_if
+```
+
+## **Map Methods**
+
+```
+- Methods:
+    - map / collect
+    - map! / collect!
+```
+
+## **Inject Methods**
+
+```
+- Methods:
+    - inject/ reduce
+    - Block variable to use for accumulation
+    - Ruby convention: memo 
+```
+
+## **Sort Methods**
+
+```
+- Methods: 
+    - sort / sort_by
+    - sort! / sort_by!
+
+- Comparison Operator
+    - '<=>'
+    - value1 <=> value2
+    - e.x.: 
+        - 1 <=> 2 # return -1
+        - 2 <=> 1 # return 1
+```
+
+|  |  | |
+|-----------|-----------|-----------|
+|   -1 | Less than  | Moves "left" |
+|   0 | Equal | Stays |
+| 1 | More than | Moves "right"|
+
+# **Merge Methods**
+
+```
+- Methods: 
+    - merge / merge!
+- Used for hashes only
+```
