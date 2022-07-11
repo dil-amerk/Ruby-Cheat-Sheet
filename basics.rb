@@ -346,3 +346,44 @@
 
 # puts more_example
 # puts more_example_2
+
+# #--- Define and call methods ---
+
+# def hello_world
+#     puts "Hello World from a method!"
+# end 
+
+# hello_world
+
+# hello_world
+
+# def hello_world
+#     puts "Hello World from a method with redefine!"
+# end 
+
+# hello_world
+
+# def volume x, y, z
+#     puts x * y * z
+# end
+
+# volume 1, 8, 10
+
+#     #--- Methods with default argument ---
+
+# def default_arg greeting, name, punct='!'
+#     puts greeting + ' ' + name + punct
+# end 
+
+# default_arg 'Hello', 'World'
+# default_arg 'Hello', 'World', '???'
+
+# def options_welcome greeting, options = {}
+#     name = options[:name] ||  'World'
+#     punct = options[:punct] || '!'
+#     puts greeting + ' ' + name + punct
+# end 
+
+# options_welcome 'Hello'
+# options_welcome 'Hello', {:punct => '?????'}
+

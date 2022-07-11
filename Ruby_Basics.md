@@ -341,10 +341,42 @@ end
 |   0 | Equal | Stays |
 | 1 | More than | Moves "right"|
 
-# **Merge Methods**
+## **Merge Methods**
 
 ```
 - Methods: 
     - merge / merge!
 - Used for hashes only
+```
+
+## **Define and call methods**
+
+```
+- Methods Names:
+    - Generally, lowercase with underscores
+    - First character: lowercase letter or underscore
+    - Contains letters, digits, underscores
+    - Last character can also be ?!=
+
+- Methods Form: 
+    
+    def some_name
+        #...
+    end
+```
+
+## **Default Arguments**
+
+```
+- Default value can be any Ruby object 
+- Required arguments listed first 
+- Optional arguments listed last
+- Or you can use 'options = {}'
+```
+
+## **Return Value**
+
+```
+- Methods return the last operation's value by default
+- Not necessary in last line of methods
 ```
