@@ -230,6 +230,7 @@ end
 - #!/usr/bin/env ruby (shebang line)
 - This line figure out which version of Ruby is active. 
 - This line always on the top of the file.
+- Only in the main script file is necessary.
 ```
 
 ## **Exit a running script** 
@@ -379,4 +380,150 @@ end
 ```
 - Methods return the last operation's value by default
 - Not necessary in last line of methods
+```
+
+***
+
+## **Define a Class**
+
+```
+class ClassName
+    #...
+end
+```
+
+## **Attribute Methods**
+
+```
+- attr_* methods
+- attr_reader
+- attr_writer
+- attr_accessor
+
+- attr_reader :name
+
+    Same as:
+    def name 
+      @name
+    end 
+
+```
+
+## **Access Control**
+
+```
+class SomeClass
+
+    def method1
+    end
+
+protected 
+
+    def method2
+    end
+
+private 
+
+    def method3
+    end
+
+end
+```
+
+## **Class Methods**
+
+```
+def self.method_name
+    # ...
+end
+```
+
+## **Class Reader and Writer Methods**
+
+```
+- Ruby on Rails has cattr_* methods, but Ruby does not 
+```
+
+## **Inheritance**
+
+```
+class Animal
+
+  attr_accessor :noise
+
+end
+
+
+class Dog < Animal
+
+    def initialize
+      @noise = 'Woof'
+    end
+
+end
+
+- Ruby only allows subclasses to inherit from one superclass
+```
+
+## **Access the superclass**
+
+```
+- With 'super'
+```
+
+## **Namespaces** 
+
+```
+module MakeSparks
+    class Date
+        # ...
+    end
+end
+
+dinner = MakeSparks::Date.new
+dinner = Date.new
+```
+
+## **Load, Require, and Include**
+
+```
+- load: 
+    - Loads a source file every time it is called
+    - Returns true if a file is loaded successfully
+
+- require:
+    - Loads a source file only once
+    - Returns true if a file is loaded successfully and has not been loaded before
+
+- include:
+    - Includes modules in classes 
+    - Nothing to do with loading files
+```
+
+## **Handle exceptions**
+
+```
+begin / method 
+
+    # Code which could result in an exceptional event
+
+rescue ErrorType
+
+rescue ErrorType 
+
+rescue
+
+    # Code for handling the exceptional event
+
+end
+```
+
+# **Custom exceptions**
+
+```
+class TooLoudError < StandardError
+
+    # ...
+
+end
 ```

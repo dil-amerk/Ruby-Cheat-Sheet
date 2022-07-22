@@ -1,5 +1,9 @@
 #!usr/bin/env ruby #shebang line 
 
+require_relative 'modules/nameable'
+require_relative 'classes/person'
+require_relative 'classes/animal'
+
 # #--- Integers ---
 # int_variable = 8
 # puts "Int variable with 'next' method --> 
@@ -386,4 +390,38 @@
 
 # options_welcome 'Hello'
 # options_welcome 'Hello', {:punct => '?????'}
+
+#--- Classes --- 
+#     #--- Basics ---
+# person = Person.new
+# person.say_hello
+
+#     #--- Classical way ---
+# animal = Animal.new
+# animal.noise = 'Woof'
+# puts animal.noise
+
+#     #--- With attribute method ---  
+# animal.noise_attr = 'Oink'
+# puts animal.noise_attr
+
+#     #--- With Access control ---
+# person.first_name = 'Gipsz'
+# person.last_name = 'Jakab'
+# puts person.full_name
+# puts person.initial_and_last_name
+
+#     #--- With init ---
+# animal_init = Animal.new({noise: 'Woof'})
+# puts animal_init.noise
+
+#     #--- With class methods && Class attributes ---
+# Animal.species.each do |types|
+#     puts types
+# end
+
+# dog = Animal.create_a_dog
+# pig = Animal.new()
+# puts "#{dog.color} --- #{dog.noise}"
+# puts Animal.total_animals
 
