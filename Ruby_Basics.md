@@ -10,20 +10,20 @@
     - lowercase and underscores (this_is_an_variable = 'object')
 
 #### ***Variable Scope Indicators***
-|               |               |     
-| ------------- | ------------- | 
-| Global        | $variable     | 
-| Class         | @@variable    |
-| Instance      | @variable     |
-| Local         | variable      |
-| Block         | variable      | 
+|          |            |
+| -------- | ---------- |
+| Global   | $variable  |
+| Class    | @@variable |
+| Instance | @variable  |
+| Local    | variable   |
+| Block    | variable   |
 
 ## **Arrays** ##
-|               |               |     
-| ------------- | ------------- | 
-|      '!'     -->   |   The array change is permanently|
-|      '?'     -->   |   return bool                    |
-|   arr = %w(alma roka foka)     -->    | same then arr = ['alma', 'roka', 'foka']  |
+|                                               |                                                                  |
+| --------------------------------------------- | ---------------------------------------------------------------- |
+| '!'     -->                                   | The array change is permanently                                  |
+| '?'     -->                                   | return bool                                                      |
+| arr = %w(alma roka foka)     -->              | same then arr = ['alma', 'roka', 'foka']                         |
 | More arr. methods and functions with examples | https://www.geeksforgeeks.org/ruby-array-shift-function/?ref=lbp |
 
 ## **Hashes and Symbols** ##
@@ -62,8 +62,8 @@ hashes_with_symbol[:first_name] != hashes_with_symbol['first_name']
 ## **Ranges**
 
 | Inclusive | Exclusive |
-|-----------|-----------|
-|   1..10   |  1...10   |
+| --------- | --------- |
+| 1..10     | 1...10    |
 
 ## **Constants**
 
@@ -244,23 +244,23 @@ end
 
 ## **Input and Output**
 
-| Output | Input |
-|-----------|-----------|
-|   puts (Console.WriteLine())   |  gets  |
-|   print(Console.Write()) 
+| Output                     | Input |
+| -------------------------- | ----- |
+| puts (Console.WriteLine()) | gets  |
+| print(Console.Write())     |
 
-| Important with gets | |
-|-----------|-----------|
-|   chop  |  Removes the last character of a string   |
-|   chomp | Removes the last character of a string if it is a new line character|
+| Important with gets |                                                                      |
+| ------------------- | -------------------------------------------------------------------- |
+| chop                | Removes the last character of a string                               |
+| chomp               | Removes the last character of a string if it is a new line character |
 
-| Convert Data Types | |
-|-----------|-----------|
-|   .to_s  |  to String    |
-|   .to_i  | to Int |
-|   .to_f  | to Float |
-|   .to_sym | to Symbol|
-|   .to_a | to Array |
+| Convert Data Types |           |
+| ------------------ | --------- |
+| .to_s              | to String |
+| .to_i              | to Int    |
+| .to_f              | to Float  |
+| .to_sym            | to Symbol |
+| .to_a              | to Array  |
 
 ## **Code Block** 
 
@@ -336,11 +336,11 @@ end
         - 2 <=> 1 # return 1
 ```
 
-|  |  | |
-|-----------|-----------|-----------|
-|   -1 | Less than  | Moves "left" |
-|   0 | Equal | Stays |
-| 1 | More than | Moves "right"|
+|     |           |               |
+| --- | --------- | ------------- |
+| -1  | Less than | Moves "left"  |
+| 0   | Equal     | Stays         |
+| 1   | More than | Moves "right" |
 
 ## **Merge Methods**
 
@@ -526,4 +526,170 @@ class TooLoudError < StandardError
     # ...
 
 end
+```
+
+***
+
+# **Access Files**
+
+```
+- File.new:
+
+    file = File.new(filepath, 'w')
+
+        # ... work with file
+
+    file.close
+
+- File.open/read:
+
+    File.open(filepath, 'w') do |file|
+
+        file.each_line do |line|
+
+            # ... work with lines 
+
+        end
+    
+    end
+
+```
+
+# **Read or Write an entire file**
+
+```
+- Read: 
+    - File.read(filepath)
+    - File.readlines(filepath) -- return with an array of lines 
+```
+
+# **File Rename, Delete or Copy**
+
+```
+ - Need to import require -- 'fileutils' 
+
+ - File Utils: 
+    - copy, cp
+    - move, mv
+    - remove, rm
+    - cd, pwd
+    - chown, chmod, touch, ln
+
+```
+
+# **Examine file details**
+
+```
+- File.exist?(filepath)
+- File.file?(filepath)
+- File.directory?(filepath)
+- File.readable?(filepath)
+- File.writable?(filepath)
+- File.executable?(filepath)
+- File.size(filepath) # in bytes
+- File.dirname(filepath)
+- File.basname(filepath)
+- File.extname(filepath)
+- File.mtime(filepath) -- Last modified time ( last write )
+- File.atime(filepath) -- Last accessed time ( last read or write )
+- File.ctime(filepath) -- Last status change time ( last read or write or permissions change. NOT created time! )
+```
+
+# **Create and Delete Direcories**
+
+```
+- Create: 
+    - Dir.mkdir(filepath) 
+    - FileUtils.mkdir(filepath) (require 'fileutils')
+
+- Delete:
+    - Dir.delete(filepath) # does not delete unless empty
+        - Dir.empty?(filepath)
+    
+    - FileUtils.rmdir(filepath) # does not delete unless empty
+    - FileUtils.rm_r(filepath) # deletes directory and all contents recursively
+
+
+```
+
+# **CSV Files**
+
+```
+- require 'csv'
+- CSV.foreach("file.csv") do |row|
+    # Use row here ... 
+  end
+
+- array = CSV.read("file.csv")
+```
+
+# **YAML Files**
+
+```
+- require 'psych'
+- .yml
+- Read: 
+    - yaml = File.read("file.yaml")
+    - ruby_data = Psych.load(yaml)
+- Write: 
+    - yaml = Psych.dump(ruby_data) or 
+    - yaml = {'enabled' => true}.to_yaml
+    - File.write("file.yaml" , yaml)
+```
+
+# **JSON Files**
+
+```
+- require 'json'
+- Read:
+    - json = File.read("file.json")
+    - hash = JSON.parse(json)
+- Write:
+    - json = JSON.generate(hash) or
+    - json = {'enable' => true}.to_json
+    - File.write("file.json" , json)
+```
+
+# **XML Files**
+
+```
+ - Built-in Ruby XML libary: REXML: 
+    - https://www.xml.com/pub/a/2005/11/09/rexml-processing-xml-in-ruby.html
+- Ruby Gems: 
+    - Nokogiri: 
+        - https://nokogiri.org/tutorials/parsing_an_html_xml_document.html#from-a-string
+    - Nori: 
+        - https://github.com/savonrb/nori
+    - Gyoku:
+        - https://github.com/savonrb/gyoku
+    - multi_xml
+    - xml-simple
+```
+
+# **Embed Ruby**
+
+```
+- ERB 
+- <% code %> or <%= code %>
+- ERB Template:
+    - require 'erb'
+    - template = "The year is <%= Time.now.year %>." -- it's just a string
+    - renderer = ERB.new(template)
+    - puts renderer.result 
+```
+
+# **Binding**
+
+```
+- Every Ruby object stores its instance variables in a Binding object
+- Accessible using private instance method called #binding 
+- Passing a binding as an argument to ERB#result gives a template access to all instance variables stored in the binding.
+- Only works with instance variables, not local or class variables
+
+- Use:
+    - require 'erb'
+    - @year = Time.now.year
+    - template = "The year is <%= @year %>."
+    - renderer = ERB.new(template)
+    - puts renderer.result(binding )
 ```

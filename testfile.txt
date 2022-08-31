@@ -1,0 +1,4 @@
+First write in Ruby to the file
+Something else
+--------------
+It's the end or not ? 

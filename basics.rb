@@ -1,8 +1,9 @@
 #!usr/bin/env ruby #shebang line 
 
-require_relative 'modules/nameable'
-require_relative 'classes/person'
-require_relative 'classes/animal'
+# require_relative 'modules/nameable'
+# require_relative 'classes/person'
+# require_relative 'classes/animal'
+require 'fileutils'
 
 # #--- Integers ---
 # int_variable = 8
@@ -424,4 +425,103 @@ require_relative 'classes/animal'
 # pig = Animal.new()
 # puts "#{dog.color} --- #{dog.noise}"
 # puts Animal.total_animals
+
+# #--- Write to Files ---
+
+# file = File.new('testfile.txt', 'w')
+# file.puts "First write in Ruby to the file" #It has line return
+# file.print "Something else\n" #It has not line return
+# file.write "--------------\n" #Same as .print
+# file << "This is the end of the file\n"
+# file.close 
+
+# #--- Read from file ---
+
+#     #--- With 'read' ---
+# file = File.new('testfile.txt', 'r')
+# string1 = file.read(4) #It will return 4 char
+# string2 = file.read 4  
+# file.close
+
+# puts string1
+# puts string2
+
+#    # --- With 'gets' ---
+# file = File.new 'testfile.txt', 'r'
+# line1 = file.gets.chomp
+# line2 = file.gets
+# line3 = file.gets
+# line4 = file.gets
+# file.close 
+
+# puts line1
+# puts line2
+# puts line3
+# puts line4
+
+#     #--- With '.each_line' ---
+
+# file = File.new 'testfile.txt', 'r'
+
+# File.open('testfile.txt', 'r') do |file|
+
+#     file.each_line do |line|
+#         puts line.chomp.upcase.reverse
+#     end
+# end
+
+# #--- Read/Write an entire file ---
+
+# data = File.read('testfile.txt')
+# data_readline = File.readlines('testfile.txt')
+# puts "With 'File.read' --> \n\n #{data}"
+# puts "\nWith 'File.readlines' --> \n\n #{data_readline[3]}"
+
+# data_readline[3] = "It's the end or not ? "
+# modify_line = data_readline.join
+# File.write('testfile.txt', modify_line)
+# puts "\nAfter modify the last line --> \n\n #{data_readline} "
+
+# # --- Rename, Delete or Copy --- 
+
+# FileUtils.copy('testfile.txt', 'delete_test_file.txt')
+# FileUtils.move('delete_test_file.txt', 'just_delete_me.txt') # Rename
+# FileUtils.remove('just_delete_me.txt')
+
+# #--- Examine File Details ---
+
+# puts "'File.exist?(filepath)': #{File.exist?('testfile.txt')}"
+# puts "'File.file?(filepath)': #{File.file?('testfile.txt')}"
+# puts "'File.directory?(filepath)': #{File.directory?('testfile.txt')}"
+# puts "'File.readable?(filepath)': #{File.readable?('testfile.txt')}"
+# puts "'File.writable?(filepath)': #{File.writable?('testfile.txt')}"
+# puts "'File.executable?(filepath)': #{File.executable?('testfile.txt')}"
+# puts "'File.size(filepath)': #{File.size('testfile.txt')}"
+# puts "'File.dirname(filepath)': #{File.dirname('testfile.txt')}"
+# puts "'File.basename(filepath)': #{File.basename('testfile.txt')}"
+# puts "'File.extname(filepath)': #{File.extname('testfile.txt')}"
+# puts "'File.mtime(filepath)': #{File.mtime('testfile.txt')}"
+# puts "'File.atime(filepath)': #{File.atime('testfile.txt')}"
+# puts "'File.ctime(filepath)': #{File.ctime('testfile.txt')}"
+
+# #--- Create and Delete Directory ---
+
+# current_dir = File.dirname(__FILE__)
+# new_dir = File.join(current_dir, 'new')
+
+#    #--- With 'Dir' ---
+
+# Dir.mkdir(new_dir)
+# puts Dir.empty?(new_dir)
+# Dir.delete(new_dir)
+
+#     #--- With 'FileUtils' ---
+
+# FileUtils.mkdir(new_dir)
+# filepath = File.join(new_dir, 'delete_me.txt')
+# File.open(filepath, 'w') do |file|
+#     file.puts "This is a test file !!!!"
+# end
+
+# FileUtils.rm_r(new_dir) 
 
